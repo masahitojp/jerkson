@@ -1,4 +1,4 @@
-# Jerkson for Scala 2.10 #
+# Jerkson for Scala 2.10 [![Build Status](https://travis-ci.org/masahitojp/jerkson.svg?branch=master)](https://travis-ci.org/masahitojp/jerkson) #
 
 [Jerkson](https://github.com/codahale/jerkson) has only been published for
 Scala versions as high as 2.9.1.
@@ -6,8 +6,6 @@ Scala versions as high as 2.9.1.
 ## Differences from upstream Jerkson ##
 
 - sbt instead of Maven.
-- Tests have been deleted, since sbt cannot run
-  [simplespec](https://github.com/SimpleFinance/simplespec) tests.
 - Minor tweaks to get compilation in 2.10.
 - [Streaming iteration patch](https://github.com/ymasory/jerkson/pull/1), if you
   use version 0.6.2+.
