@@ -3,9 +3,9 @@ package com.codahale.jerkson.tests
 import com.codahale.jerkson.Json._
 import scala.collection.mutable._
 import com.codahale.jerkson.ParsingException
-import org.scalatest.{FreeSpec, ShouldMatchers}
+import org.scalatest.{FreeSpec, Matchers}
 
-class MutableCollectionSupportSpec extends FreeSpec with ShouldMatchers {
+class MutableCollectionSupportSpec extends FreeSpec with Matchers {
   "A mutable.ResizableArray[Int]" - {
     "generates a JSON array of ints" - {
       generate(ResizableArray(1, 2, 3)) should be ("[1,2,3]")

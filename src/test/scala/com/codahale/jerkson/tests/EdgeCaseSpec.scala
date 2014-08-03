@@ -3,9 +3,9 @@ package com.codahale.jerkson.tests
 import com.codahale.jerkson.Json._
 import com.codahale.jerkson.ParsingException
 import java.io.ByteArrayInputStream
-import org.scalatest.{FreeSpec, ShouldMatchers}
+import org.scalatest.{Matchers, FreeSpec}
 
-class EdgeCaseSpec extends FreeSpec with ShouldMatchers {
+class EdgeCaseSpec extends FreeSpec with Matchers {
   "Deserializing lists" - {
     "doesn't cache Seq builders" - {
       parse[List[Int]]("[1,2,3,4]") should be (List(1, 2, 3, 4))
@@ -46,7 +46,7 @@ class EdgeCaseSpec extends FreeSpec with ShouldMatchers {
     "should throw a ParsingException with an informative message" - {
       intercept[ParsingException] {
         parse[CaseClass]("900")
-      }.getMessage.split("\n")(0) should be (
+      }.getMessage should startWith (
         "Can not deserialize instance of com.codahale.jerkson.tests.CaseClass out of VALUE_NUMBER_INT token"
       )
 
@@ -61,7 +61,7 @@ class EdgeCaseSpec extends FreeSpec with ShouldMatchers {
       val input = new ByteArrayInputStream(Array.empty)
       intercept[ParsingException] {
         parse[CaseClass](input)
-      }.getMessage.split("\n")(0) should be ("No content to map due to end-of-input")
+      }.getMessage should startWith ("No content to map due to end-of-input")
     }
   }
 }

@@ -3,9 +3,9 @@ package com.codahale.jerkson.tests
 import com.codahale.jerkson.Json._
 import scala.collection.immutable._
 import com.codahale.jerkson.ParsingException
-import org.scalatest.{ShouldMatchers, FreeSpec}
+import org.scalatest.{Matchers, FreeSpec}
 
-class ImmutableCollectionSupportSpec extends FreeSpec with ShouldMatchers {
+class ImmutableCollectionSupportSpec extends FreeSpec with Matchers {
   "An immutable.Seq[Int]" - {
     "generates a JSON array of ints" - {
       generate(Seq(1, 2, 3)) should be ("[1,2,3]")

@@ -3,9 +3,9 @@ package com.codahale.jerkson.tests
 import java.net.URI
 import com.codahale.jerkson.Json._
 import java.util.UUID
-import org.scalatest.{ShouldMatchers, FreeSpec}
+import org.scalatest.{Matchers, FreeSpec}
 
-class FancyTypeSupportSpec extends FreeSpec with ShouldMatchers {
+class FancyTypeSupportSpec extends FreeSpec with Matchers {
   "A URI" - {
     "generates a JSON string" - {
       generate(new URI("http://example.com/resource?query=yes")) should be ("\"http://example.com/resource?query=yes\"")

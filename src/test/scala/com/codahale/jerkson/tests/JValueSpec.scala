@@ -7,20 +7,20 @@ class JValueSpec extends FreeSpec with Matchers {
 
   "Selecting single nodes" - {
     "returns None with primitives" in {
-      assert((parse[JValue]("8") \ "blah") === JNull)
+      (parse[JValue]("8") \ "blah") should be (JNull)
     }
     "returns None on nonexistent fields" in {
-      assert((parse[JValue]("{\"one\": \"1\"}") \ "two") === JNull)
+      (parse[JValue]("{\"one\": \"1\"}") \ "two") should be (JNull)
     }
 
     "returns a JValue with an existing field" in {
-      assert((parse[JValue]("{\"one\": \"1\"}") \ "one") === JString("1"))
+      (parse[JValue]("{\"one\": \"1\"}") \ "one") should be (JString("1"))
     }
   }
 
   "Selecting array members" - {
     "returns None with primitives" in {
-      assert(parse[JValue]("\"derp\"").apply(0) === JNull)
+      parse[JValue]("\"derp\"").apply(0) should be (JNull)
     }
 
     "returns None on out of bounds" - {
