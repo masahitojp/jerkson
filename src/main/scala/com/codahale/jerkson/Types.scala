@@ -2,11 +2,11 @@ package com.codahale.jerkson
 
 import com.fasterxml.jackson.databind.JavaType
 import com.fasterxml.jackson.databind.`type`.{TypeFactory, ArrayType}
-import scala.collection.JavaConversions.asScalaConcurrentMap
+import scala.collection.JavaConverters._
 import java.util.concurrent.ConcurrentHashMap
 
 private[jerkson] object Types {
-  private val cachedTypes = asScalaConcurrentMap(new ConcurrentHashMap[Manifest[_], JavaType]())
+  private val cachedTypes = (new ConcurrentHashMap[Manifest[_], JavaType]()).asScala
 
   def build(factory: TypeFactory, manifest: Manifest[_]): JavaType =
     cachedTypes.getOrElseUpdate(manifest, constructType(factory, manifest))
